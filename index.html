@@ -83,7 +83,26 @@
 						</div>
 						
 						<div class="dynamic-strip no-shrink">
-							<div class="now-time"> 当前时间:2024-12-13 14:01:01 </div>
+							<div class="now-time" id="current-time"> 当前时间: </div>
+
+<script>
+  function updateTime() {
+    const now = new Date();
+    const formattedTime = now.getFullYear() + '-' + 
+                          ('0' + (now.getMonth() + 1)).slice(-2) + '-' + 
+                          ('0' + now.getDate()).slice(-2) + ' ' + 
+                          ('0' + now.getHours()).slice(-2) + ':' + 
+                          ('0' + now.getMinutes()).slice(-2) + ':' + 
+                          ('0' + now.getSeconds()).slice(-2);
+    document.getElementById('current-time').textContent = ' 当前时间:' + formattedTime;
+  }
+
+  // 初始更新时间
+  updateTime();
+  // 每秒更新一次
+  setInterval(updateTime, 1000);
+</script>
+
 						</div>
 					</div>
 					
